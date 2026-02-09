@@ -65,12 +65,25 @@ function isValidUser(user) {
            user.email.includes('@');
 }
 
+/**
+ * Format user display name
+ * @param {Object} user - User object
+ * @returns {string} Formatted display name
+ */
+function formatDisplayName(user) {
+    if (!user || !user.name) {
+        return 'Anonymous User';
+    }
+    return `${user.name} (${user.role})`;
+}
+
 // Export for testing (Node.js environment)
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
         displayUserProfile,
         getUserById,
         isValidUser,
+        formatDisplayName,
         sampleUser
     };
 }
