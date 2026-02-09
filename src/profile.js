@@ -58,8 +58,10 @@ function getUserById(id) {
  * @returns {boolean} True if valid
  */
 function isValidUser(user) {
-    return user &&
-           typeof user.name === 'string' &&
+    if (!user) {
+        return false;
+    }
+    return typeof user.name === 'string' &&
            typeof user.email === 'string' &&
            user.name.length > 0 &&
            user.email.includes('@');
