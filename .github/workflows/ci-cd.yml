@@ -6,15 +6,15 @@ name: CI/CD Pipeline
 on:
   # Trigger on push to main branch
   push:
-    branches: [ main ]
+    branches: [main]
   # Trigger on pull requests to main
   pull_request:
-    branches: [ main ]
+    branches: [main]
   # Allow manual trigger
   workflow_dispatch:
 
 env:
-  NODE_VERSION: '20'
+  NODE_VERSION: "20"
 
 jobs:
   # ============================================
@@ -32,7 +32,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
+          cache: "npm"
 
       - name: Install dependencies
         run: npm ci
@@ -63,23 +63,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
+          cache: "npm"
 
       - name: Install dependencies
         run: npm ci
 
       - name: Run tests
         run: npm test
-
-      - name: Run tests with coverage
-        run: npm run test:coverage
-
-      - name: Upload coverage report
-        uses: actions/upload-artifact@v4
-        with:
-          name: coverage-report
-          path: coverage/
-          retention-days: 7
 
   # ============================================
   # DEPLOY TO STAGING
