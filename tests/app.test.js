@@ -4,7 +4,7 @@
  */
 
 const { greet, add, isValid, getVersion, APP_VERSION } = require('../src/app.js');
-const { displayUserProfile, isValidUser, getUserById, sampleUser } = require('../src/profile.js');
+const { displayUserProfile, isValidUser, getUserById, formatDisplayName, sampleUser } = require('../src/profile.js');
 
 // ============================================
 // App.js Tests
@@ -132,6 +132,21 @@ describe('Profile Module', () => {
 
         test('should return null for invalid ID', () => {
             expect(getUserById(999)).toBeNull();
+        });
+    });
+
+    describe('formatDisplayName()', () => {
+        test('should format display name with role', () => {
+            const user = { name: 'Jane Doe', role: 'Admin' };
+            expect(formatDisplayName(user)).toBe('Jane Doe (Admin)');
+        });
+
+        test('should return Anonymous User for null', () => {
+            expect(formatDisplayName(null)).toBe('Anonymous User');
+        });
+
+        test('should return Anonymous User for user without name', () => {
+            expect(formatDisplayName({ role: 'Guest' })).toBe('Anonymous User');
         });
     });
 });
