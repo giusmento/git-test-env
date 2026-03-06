@@ -7,10 +7,10 @@ const APP_VERSION = '1.0.0';
 
 // Add this new function to src/app.js
 function greetUser(name) {
-  return `Hello, ${name}! Welcome to Git CI/CD!`;
+  return `Hello, ${name}! Welcome to Git CI/CD Course!`;
 }
 
-module.exports = { greetUser };
+
 
 /**
  * Initialize the application
@@ -72,6 +72,7 @@ if (typeof module !== 'undefined' && module.exports) {
         greet,
         add,
         isValid,
-        APP_VERSION
+        APP_VERSION,
+        greetUser
     };
 }
