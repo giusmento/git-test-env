@@ -12,6 +12,14 @@ function greetUser(name) {
 
 module.exports = { greetUser };
 
+// Add this new function to src/app.js
+
+function greetUser(name) {
+  return `Hello, ${name}! Welcome to Git CI/CD!`;
+}
+
+module.exports = { greetUser };
+
 /**
  * Initialize the application
  */
