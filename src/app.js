@@ -40,6 +40,15 @@ function greet(name) {
     return `Hello, ${name}!`;
 }
 
+// Add this new function to src/app.js​
+function greetUser(name) {​
+
+return `Hello, ${name}! Welcome to Git CI/CD!`;​
+
+}​
+
+module.exports = { greetUser };
+
 /**
  * Calculate the sum of two numbers
  * @param {number} a - First number
