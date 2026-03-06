@@ -75,3 +75,16 @@ if (typeof module !== 'undefined' && module.exports) {
         APP_VERSION
     };
 }
+// Add this new function to src/app.js​
+
+​
+
+function salutaUtente(name) {​
+
+return `Ciao, ${name}! Benvenuto Git CI/CD!`;​
+
+}​
+
+​
+
+module.exports = { salutaUtente };​
